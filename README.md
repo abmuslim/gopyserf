@@ -75,8 +75,11 @@ sudo containerlab deploy -t ceso5node.yml
 # Step 3: Assign IPs
 ./ipaddressing.sh
 
-# Step 4: Start Serf agents
+# Step 4: Setup node
+./setup_nodes.sh
+
+# Step 5: Start Serf agents
 ./serf_agents_start.sh
 
-# Step 5: Join nodes into the cluster
+# Step 6: Join nodes into the cluster
 ./serf_agents_joining.sh
