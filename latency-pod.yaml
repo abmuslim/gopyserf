@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: Latency-pod
+  labels:
+    qos: latency
+spec:
+  schedulerName: custom
+  containers:
+  - name: busybox
+    image: busybox:latest     
+    command: ["/bin/sh", "-c", "while :; do yes > /dev/null; done"]
