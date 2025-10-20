@@ -11,7 +11,12 @@ This repository provides a complete 5-node Kubernetes-based topology using Conta
 
 | Port | Component | Description |
 |------|------------|-------------|
-| **8080** | Controller DaemonSet | HTTP API endpoint for exposing node resource metrics (queried by the P2P) |
+| **8080** | Controller DaemonSet | HTTP API endpoint for exposing node resource metrics (queried by Range Query) |
+| **8081** | RAM (`ram_price.yaml`) | Service exposing RAM pricing|
+| **8082** | vGPU (`vgpu_price.yaml`) | Service exposing virtual GPU pricing |
+| **8083** | vCPU (`vcpu_price.yaml`) | Service exposing virtual CPU pricing |
+| **8084** | Storage (`storage_price.yaml`) | Service exposing storage pricing |
+
 
 ## Files Included
 
