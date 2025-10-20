@@ -8,7 +8,7 @@ topology:
 
     serf1:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.0
+      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.2
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -46,6 +46,9 @@ topology:
           k3s kubectl apply -f /tmp/cluster-role-binding.yaml
           k3s kubectl apply -f /tmp/deployment-scheduler.yaml
           k3s kubectl apply -f /tmp/ram_price.yaml
+          k3s kubectl apply -f /tmp/storage_price.yaml
+          k3s kubectl apply -f /tmp/vcpu_price.yaml
+          k3s kubectl apply -f /tmp/vgpu_price.yaml
           
           sudo mv /etc/rancher/k3s/k3s.yaml ~/.kube/config
           sudo chown $(whoami):$(whoami) ~/.kube/config
@@ -55,7 +58,7 @@ topology:
 
     serf2:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.1
+      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.2
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -93,6 +96,9 @@ topology:
           k3s kubectl apply -f /tmp/cluster-role-binding.yaml
           k3s kubectl apply -f /tmp/deployment-scheduler.yaml
           k3s kubectl apply -f /tmp/ram_price.yaml
+          k3s kubectl apply -f /tmp/storage_price.yaml
+          k3s kubectl apply -f /tmp/vcpu_price.yaml
+          k3s kubectl apply -f /tmp/vgpu_price.yaml
 
           sudo mv /etc/rancher/k3s/k3s.yaml ~/.kube/config
           sudo chown $(whoami):$(whoami) ~/.kube/config
@@ -102,7 +108,7 @@ topology:
 
     serf3:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.1
+      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.2
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -140,6 +146,9 @@ topology:
           k3s kubectl apply -f /tmp/cluster-role-binding.yaml
           k3s kubectl apply -f /tmp/deployment-scheduler.yaml
           k3s kubectl apply -f /tmp/ram_price.yaml
+          k3s kubectl apply -f /tmp/storage_price.yaml
+          k3s kubectl apply -f /tmp/vcpu_price.yaml
+          k3s kubectl apply -f /tmp/vgpu_price.yaml
 
           sudo mv /etc/rancher/k3s/k3s.yaml ~/.kube/config
           sudo chown $(whoami):$(whoami) ~/.kube/config
@@ -149,7 +158,7 @@ topology:
 
     serf4:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.1
+      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.2
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -187,6 +196,9 @@ topology:
           k3s kubectl apply -f /tmp/cluster-role-binding.yaml
           k3s kubectl apply -f /tmp/deployment-scheduler.yaml
           k3s kubectl apply -f /tmp/ram_price.yaml
+          k3s kubectl apply -f /tmp/storage_price.yaml
+          k3s kubectl apply -f /tmp/vcpu_price.yaml
+          k3s kubectl apply -f /tmp/vgpu_price.yaml
 
           sudo mv /etc/rancher/k3s/k3s.yaml ~/.kube/config
           sudo chown $(whoami):$(whoami) ~/.kube/config
@@ -196,7 +208,7 @@ topology:
 
     serf5:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.1
+      image:  abdullahmuzlim279/k3s-serf-node:pricing-v1.2
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -234,6 +246,9 @@ topology:
           k3s kubectl apply -f /tmp/cluster-role-binding.yaml
           k3s kubectl apply -f /tmp/deployment-scheduler.yaml
           k3s kubectl apply -f /tmp/ram_price.yaml
+          k3s kubectl apply -f /tmp/storage_price.yaml
+          k3s kubectl apply -f /tmp/vcpu_price.yaml
+          k3s kubectl apply -f /tmp/vgpu_price.yaml
 
           sudo mv /etc/rancher/k3s/k3s.yaml ~/.kube/config
           sudo chown $(whoami):$(whoami) ~/.kube/config
