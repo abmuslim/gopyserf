@@ -7,6 +7,12 @@ This repository provides a complete 5-node Kubernetes-based topology using Conta
 - A custom Kubernetes scheduler
 - A controller DaemonSet that exposes real-time node resource metrics
 
+##  Ports Used
+
+| Port | Component | Description |
+|------|------------|-------------|
+| **8080** | Controller DaemonSet | HTTP API endpoint for exposing node resource metrics (queried by the P2P) |
+
 ## Files Included
 
 - `ceos5node.yaml`: Main topology file defining nodes and configuration
