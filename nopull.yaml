@@ -61,7 +61,7 @@ topology:
 
     serf2:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pyRQ
+      image:  abdullahmuzlim279/k3s-serf-node:warmcache
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -90,9 +90,10 @@ topology:
           chmod 666 /etc/rancher/k3s/k3s.yaml          
           export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
           
-          # ✅ NEW STEP: import preloaded images into K3s containerd
-          for tar in /opt/k3s-images/*.tar; do
-              [ -f "$tar" ] && echo "Importing $tar ..." && k3s ctr images import "$tar" || true
+          echo "Importing cached images into containerd..."
+          for f in /opt/k3s-images/*.tar; do
+              echo "Loading $f ..."
+              /usr/local/bin/k3s ctr images import "$f" || true
           done
           #ip route del default via 10.0.1.1 dev eth1
           #ip route add default via 172.20.20.1 dev eth0   
@@ -114,7 +115,7 @@ topology:
 
     serf3:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pyRQ
+      image:  abdullahmuzlim279/k3s-serf-node:warmcache
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -143,9 +144,10 @@ topology:
           chmod 666 /etc/rancher/k3s/k3s.yaml          
           export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
           
-          # ✅ NEW STEP: import preloaded images into K3s containerd
-          for tar in /opt/k3s-images/*.tar; do
-              [ -f "$tar" ] && echo "Importing $tar ..." && k3s ctr images import "$tar" || true
+          echo "Importing cached images into containerd..."
+          for f in /opt/k3s-images/*.tar; do
+              echo "Loading $f ..."
+              /usr/local/bin/k3s ctr images import "$f" || true
           done
           
           #ip route del default via 10.0.1.1 dev eth1
@@ -168,7 +170,7 @@ topology:
 
     serf4:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pyRQ
+      image:  abdullahmuzlim279/k3s-serf-node:warmcache
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -196,9 +198,10 @@ topology:
           sleep 15
           chmod 666 /etc/rancher/k3s/k3s.yaml          
           export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-          # ✅ NEW STEP: import preloaded images into K3s containerd
-          for tar in /opt/k3s-images/*.tar; do
-              [ -f "$tar" ] && echo "Importing $tar ..." && k3s ctr images import "$tar" || true
+          echo "Importing cached images into containerd..."
+          for f in /opt/k3s-images/*.tar; do
+              echo "Loading $f ..."
+              /usr/local/bin/k3s ctr images import "$f" || true
           done
           #ip route del default via 10.0.1.1 dev eth1
           #ip route add default via 172.20.20.1 dev eth0
@@ -220,7 +223,7 @@ topology:
 
     serf5:
       kind: linux
-      image:  abdullahmuzlim279/k3s-serf-node:pyRQ
+      image:  abdullahmuzlim279/k3s-serf-node:warmcache
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -248,6 +251,13 @@ topology:
           sleep 15
           chmod 666 /etc/rancher/k3s/k3s.yaml          
           export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+          
+          
+          echo "Importing cached images into containerd..."
+          for f in /opt/k3s-images/*.tar; do
+              echo "Loading $f ..."
+              /usr/local/bin/k3s ctr images import "$f" || true
+          done
           #ip route del default via 10.0.1.1 dev eth1
           #ip route add default via 172.20.20.1 dev eth0
           k3s kubectl apply -f /tmp/qos-controller-daemonset.yaml
