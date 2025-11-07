@@ -8,7 +8,7 @@ set -euo pipefail
 PREFIX="5node"
 START=1
 END=5
-TOPO_FILE="ceso5node_with_price.yml"
+TOPO_FILE="5node.yml"
 BRIDGE_NAME="central_switch"
 
 SLEEP_AFTER_DEPLOY=8
