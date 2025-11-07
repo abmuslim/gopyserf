@@ -40,12 +40,17 @@ switch_a
 
 ## Running Sellers and Buyer (must have to wait untill all the pods run)
 
-To start sellers, run:
+To start sellers, run from host:
 ```bash
 ./start_sellers.sh
 ```
 
-To run the buyer (inside the **buyer container**, path: `/opt/serfapp/`):
+to start buyer run from host:
+```bash
+./start_buyer_v2
+```
+💡 **Alternative Option:** 
+To run the buyer from inside each container for testing (inside the **buyer container**, path: `/opt/serfapp/`):
 ```bash
 ./config_buyer.sh
 ```
@@ -54,13 +59,6 @@ Then run the following command **inside the buyer container** as well (path: `/o
 python3 service_discovery_v6.py --geom-url http://172.20.20.17:4040/cluster-status --rtt-threshold-ms 12 --rpc-addr 127.0.0.1:7373 --timeout-s 8 --sort score_per_cpu --limit 30 --buyer-url http://127.0.0.1:8090/buyer --http-serve --http-host 0.0.0.0 --http-port 4041 --http-path /hilbert-output --loop --busy-secs 30
 ```
 > ⚠️ **Note:** Update the `--geom-url` IP (`http://172.20.20.17:4040/cluster-status`) to match the IP of **serf1** (e.g., `172.20.20.XX`).
-
-
-💡 **Alternative Option:**  
-If you don't want to run the above two commands on each buyer container individually, you can execute them directly on the **host** instead by running:
-```bash
-./start_buyer_v2
-```
 
 
 ## Note
