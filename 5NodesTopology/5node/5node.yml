@@ -2,14 +2,13 @@ name: century
 
 topology:
   nodes:
-    # ---------- Single L2 Switch ----------
-    switch_a:
+    central_switch:
       kind: ovs-bridge
 
     # ---------- K3s Nodes ----------
     serf1:
       kind: linux
-      image: abdullahmuzlim279/k3s-serf-node:warmcache-test
+      image: abdullahmuzlim279/k3s-serf-node:kwok
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -70,7 +69,7 @@ topology:
 
     serf2:
       kind: linux
-      image: abdullahmuzlim279/k3s-serf-node:warmcache-test
+      image: abdullahmuzlim279/k3s-serf-node:kwok
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -127,7 +126,7 @@ topology:
 
     serf3:
       kind: linux
-      image: abdullahmuzlim279/k3s-serf-node:warmcache-test
+      image: abdullahmuzlim279/k3s-serf-node:kwok
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -184,7 +183,7 @@ topology:
 
     serf4:
       kind: linux
-      image: abdullahmuzlim279/k3s-serf-node:warmcache-test
+      image: abdullahmuzlim279/k3s-serf-node:kwok
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -241,7 +240,7 @@ topology:
 
     serf5:
       kind: linux
-      image: abdullahmuzlim279/k3s-serf-node:warmcache-test
+      image: abdullahmuzlim279/k3s-serf-node:kwok
       env:
         CLAB_LINUX_PRIVILEGED: "true"
       binds:
@@ -297,8 +296,8 @@ topology:
           '
 
   links:
-    - endpoints: ["switch_a:eth1", "serf1:eth1"]
-    - endpoints: ["switch_a:eth2", "serf2:eth1"]
-    - endpoints: ["switch_a:eth3", "serf3:eth1"]
-    - endpoints: ["switch_a:eth4", "serf4:eth1"]
-    - endpoints: ["switch_a:eth5", "serf5:eth1"]
+    - endpoints: ["central_switch:eth1", "serf1:eth1"]
+    - endpoints: ["central_switch:eth2", "serf2:eth1"]
+    - endpoints: ["central_switch:eth3", "serf3:eth1"]
+    - endpoints: ["central_switch:eth4", "serf4:eth1"]
+    - endpoints: ["central_switch:eth5", "serf5:eth1"]
