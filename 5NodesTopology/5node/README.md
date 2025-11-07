@@ -38,7 +38,7 @@ switch_a
 
 ---
 
-## Running Sellers and Buyer
+## Running Sellers and Buyer (must have to wait untill all the pods run)
 
 To start sellers, run:
 ```bash
