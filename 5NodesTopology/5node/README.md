@@ -21,7 +21,7 @@ switch_a
 
 1. Run the orchestration script:
    ```bash
-   ./orchestrated.sh
+   ./orchestrated_serf.sh
    ```
 
    > It will take some time to pull the Docker images and start all pods.
